@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Quiz</h2>
+        <div id="quiz">
+            <p id="question"></p>
+            <div id="options"></div>
+            <p id="timer"></p>
+            <div class="timer">
+                <p>Time left: <span id="timer">30</span> seconds</p>
+            </div>
+            
+        </div>
+    </div>
+    <script src="js/quiz.js">
+        // Timer script
+        let timeLeft = 30; // Starting time in seconds
+        const timerElement = document.getElementById('timer');
+
+        const countdown = setInterval(() => {
+            if (timeLeft > 0) {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+            } else {
+                clearInterval(countdown); // Stop the timer at 0
+                alert("Time's up!");
+            }
+        }, 1000); // Update every 1 second
+    </script>
+
+</body>
+</html>

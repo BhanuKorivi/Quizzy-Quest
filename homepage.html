@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, <span id="username"></span></h2>
+        <div id="difficultySelection">
+            <h3>Select Difficulty</h3>
+            <button onclick="startQuiz('easy')">Easy</button>
+            <button onclick="startQuiz('moderate')">Moderate</button>
+            <button onclick="startQuiz('hard')">Hard</button>
+        </div>
+        <button onclick="viewLeaderboard()">View scoreboard</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <script src="js/homepage.js"></script>
+    <script>
+        const username = localStorage.getItem('username');
+        if (!username) {
+            window.location.href = 'login.html'; // Redirect to login page if not logged in
+        } else {
+            document.getElementById('username').textContent = username;
+        }
+    </script>
+</body>
+</html>
